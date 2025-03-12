@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queue System</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="queue-container">
+        <!-- Changed 'Please Prepare XFZ' to '下一位请准备' -->
+        <h1 id="prepareXFZ">下一位请准备: 1, 2, 3</h1>
+    
+        <div class="display-section">
+            <div class="now-serving">
+                <!-- Changed 'Now Serving' to '现在轮到' -->
+                <h2>现在轮到</h2>
+                <p id="nowServing">0</p>
+            </div>
+            <div class="missed-queue">
+                <!-- Changed 'Missed Queue' to '已过号' -->
+                <h2 id="missedQueueHeading">已过号</h2>
+                <ul id="missedQueue"></ul>
+            </div>
+        </div>
+    </div>
+    
+    
+        <!-- Sound Icon Button -->
+        <button class="btn sound-icon" onclick="playSound()">🔊 Play Sound</button>
+    
+        <div class="controls">
+            <select id="deleteMissedSelection"></select>
+            <button class="btn delete-missed" onclick="deleteSelectedMissedNumber()">Delete Missed Queue</button>
+            <button class="btn reset" onclick="resetNowServing()">Reset Now Serving</button>
+            <button class="btn undo" onclick="undoAction()">Undo</button>
+        </div>
+    
+        <!-- MP3 File for Sound -->
+        <audio id="serveSound">
+            <source src="bell.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
