@@ -1,0 +1,191 @@
+/* Center the entire body */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+}
+
+/* Main container for the queue system */
+.queue-container {
+    width: 90%; /* Stretch horizontally */
+    max-width: 1200px; /* Limit max width */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content inside */
+}
+
+/* Title */
+h1 {
+    color: #333;
+    text-align: center;
+    font-size: 60px; /* Change this value */
+}
+
+/* Display section (Now Serving & Missed Queue) */
+.display-section {
+    display: flex;
+    justify-content: space-around;
+    width: 100%; /* Full width */
+    margin: 20px 0;
+    align-items: flex-start; /* Align titles horizontally */
+}
+
+/* Now Serving & Missed Queue styling */
+.now-serving, .missed-queue {
+    background: #e3e3e3;
+    padding: 20px;
+    border-radius: 8px;
+    width: 48%; /* Increase width for horizontal stretching */
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align titles at the top */
+    align-items: center;
+    position: relative;
+    min-height: 250px; /* Ensuring both sections are aligned */
+}
+
+/* Ensure Missed Queue title aligns with Now Serving title */
+.now-serving h2, .missed-queue h2 {
+    margin: 0;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Adjust Now Serving font size based on number of digits */
+#nowServing {
+    font-weight: bold;
+    color: #d9534f;
+    width: 75%; /* Ensures fitting within the box */
+    text-align: center;
+    line-height: 1;
+}
+
+.now-serving p {
+    font-size: 400px; /* Default for 1-digit */
+    margin: 0;
+    padding: 0;
+}
+
+.now-serving p[data-length="2"] {
+    font-size: 75%; /* Reduce size to 3/4 of the box */
+}
+.now-serving:hover {
+    background: #28a7469c;
+    color: white;
+}
+
+/* Adjust Missed Queue number size */
+#missedQueue {
+    font-size: 50px; /* Default size */
+    font-weight: bold;
+    color: #0275d8;
+    width: 100%; /* Ensure full width utilization */
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Wrap numbers to next row */
+    justify-content: center;
+}
+
+/* Missed Queue styling */
+.missed-queue ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Align numbers evenly */
+}
+
+/* Style for missed queue numbers */
+.missed-queue li {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background: #ffcccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 150%; /* Default size */
+    color: blue;
+    width: calc(33% - 10px); /* Ensure 3 numbers fit per row */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Ensure numbers do not trigger hover effect */
+.missed-queue li:hover {
+    background: #e53a3a;
+}
+
+/* Center all control buttons */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.missed {
+    background: #dc3545;
+    color: white;
+}
+.delete-missed {
+    background: #ff5722;
+    color: white;
+}
+.reset {
+    background: #007bff;
+    color: white;
+}
+.undo {
+    background: #6c757d;
+    color: white;
+}
+
+/* Sound button alignment */
+.sound-icon {
+    margin-top: 1px;
+}
+
+/* Make everything responsive */
+@media (max-width: 768px) {
+    .display-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .now-serving, .missed-queue {
+        width: 90%;
+        margin-bottom: 1px;
+    }
+}
+
+/* Highlight entire missed queue box when hovered */
+.missed-queue:hover {
+    background: #e83d4eae; /* Red background */
+    color: white;
+}
